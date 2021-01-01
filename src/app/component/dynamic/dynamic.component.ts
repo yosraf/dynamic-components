@@ -16,19 +16,18 @@ export class DynamicComponent implements OnInit {
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
   ngOnInit() {
    
-
   }
   ngAfterViewInit(){
     let resolver;
-    switch (this.data) {
-      case 'list':
-        resolver = this.componentFactoryResolver.resolveComponentFactory(ListComponent);
-      case 'alert':
-        resolver = this.componentFactoryResolver.resolveComponentFactory(AlertComponent);
+    if(this.data === 'list'){
+      resolver = this.componentFactoryResolver.resolveComponentFactory(ListComponent);
+    }
+    else{
+      resolver = this.componentFactoryResolver.resolveComponentFactory(AlertComponent);
 
     }
+   
     this.vf.createComponent(resolver);
-
   }
   
 

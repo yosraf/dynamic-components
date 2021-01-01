@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
+import { ButtonComponent } from './button/button.component';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild("button", { read: ViewContainerRef })
+  button: ViewContainerRef;
+  data = [
+    "fruit",
+    "food",
+    "pizza"
+  ];
+  constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit(): void {
+  }
+  ngAfterViewInit() {
+    let resolver = this.componentFactoryResolver.resolveComponentFactory(ButtonComponent);
+    this.button.createComponent(resolver);
   }
 
 }

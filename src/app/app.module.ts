@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DynamicComponent } from './component/dynamic/dynamic.component';
 import { ListComponent } from './component/list/list.component';
 import { AlertComponent } from './component/alert/alert.component';
+import { ButtonComponent } from './component/list/button/button.component';
 
 
 
@@ -14,7 +15,8 @@ import { AlertComponent } from './component/alert/alert.component';
     AppComponent,
     DynamicComponent,
     ListComponent,
-    AlertComponent
+    AlertComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
